@@ -1,12 +1,14 @@
 import axios from "axios";
 import shortly from "../../assets/images/shortly.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import URL from "../../constants/url";
+import { useAuth } from "../../provider/auth";
 
 function SignUpPage() {
   const navigate = useNavigate();
+  const { userLogin } = useAuth();
   const [disabledButton, setDisabledButton] = useState(false);
   const [errorPassword, setErrorPassword] = useState(false);
   const [signUpForm, setSignUpForm] = useState({
@@ -15,6 +17,12 @@ function SignUpPage() {
     password: "",
     confirmPassword: "",
   });
+
+  useEffect(() => {
+    if (userLogin !== undefined) {
+      navigate("/home");
+    }
+  }, [userLogin]);
 
   function handleForm(event) {
     const { name, value } = event.target;

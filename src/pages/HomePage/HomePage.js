@@ -4,10 +4,19 @@ import { FaTrophy } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import URL from "../../constants/url";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../provider/auth";
 
 function HomePage() {
+  const navigate = useNavigate();
+  const { userLogin } = useAuth();
   const [ranking, setRanking] = useState();
+
+  useEffect(() => {
+    if (userLogin !== undefined) {
+      navigate("/home");
+    }
+  }, [userLogin]);
 
   useEffect(() => {
     axios
