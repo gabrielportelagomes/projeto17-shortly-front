@@ -32,6 +32,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 ol, ul {
 	list-style: none;
