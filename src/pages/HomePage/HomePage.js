@@ -4,6 +4,7 @@ import { FaTrophy } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import URL from "../../constants/url";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const [ranking, setRanking] = useState();
@@ -22,8 +23,12 @@ function HomePage() {
   return (
     <>
       <NavBar>
-        <SignIn>Entrar</SignIn>
-        <SignUp>Cadastrar-se</SignUp>
+        <Link to="/sign-in">
+          <SignIn>Entrar</SignIn>
+        </Link>
+        <Link to="/sign-up">
+          <SignUp>Cadastrar-se</SignUp>
+        </Link>
       </NavBar>
       <Logo>
         <h1>Shortly</h1>
