@@ -18,8 +18,6 @@ function SignInPage() {
     }
   }, [userLogin]);
 
-  console.log(userLogin)
-
   function handleForm(event) {
     const { name, value } = event.target;
     setLoginForm({ ...loginForm, [name]: value });
