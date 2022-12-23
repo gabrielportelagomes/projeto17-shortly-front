@@ -4,10 +4,9 @@ import styled from "styled-components";
 import URL from "../constants/url";
 import { useAuth } from "../provider/auth";
 
-function ShortenUrl() {
+function ShortenUrl({ update, setUpdate }) {
   const { userLogin } = useAuth();
   const [disabledButton, setDisabledButton] = useState(false);
-  const [update, setUpdate] = useState(false);
   const [urlForm, setUrlForm] = useState({
     url: "",
   });
