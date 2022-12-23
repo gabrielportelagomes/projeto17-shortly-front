@@ -6,7 +6,7 @@ export const AuthProvider = (props) => {
   const [userLogin, setUserLogin] = useState(undefined);
 
   useEffect(() => {
-    const userStorage = localStorage.getItem("userMyWallet");
+    const userStorage = localStorage.getItem("userShortly");
     if (userStorage) {
       setUserLogin(JSON.parse(userStorage));
     } else {
